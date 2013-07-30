@@ -1,5 +1,7 @@
 ImageScroller
 =============
+#Demo
+[tube map demo](http://8fc.co.uk/tubemap/)
 
 #Requirements
 * ToolkitJS: provide in this repo
