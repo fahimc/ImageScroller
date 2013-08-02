@@ -14,6 +14,7 @@ var ImageScroller = function() {
 	_.startY = 0;
 	_.scaleInterval = 0.1;
 	_.toFitScale = 1;
+	_.handlers=[];
 	_.mousewheelevt = (/Firefox/i.test(navigator.userAgent)) ? "DOMMouseScroll" : "mousewheel"//FF doesn't recognize mousewheel as of FF3.x
 
 	_.build = function(imgSrc) {
@@ -67,12 +68,12 @@ var ImageScroller = function() {
 	}
 	_.createHandler = function(eventName) {
 		var root = this;
-		if (!this.createHandler[eventName]) {
-			this.createHandler[eventName] = function(event) {
+		if (!this.handlers[eventName]) {
+			this.handlers[eventName] = function(event) {
 				root[eventName](event);
 			}
 		}
-		return this.createHandler[eventName];
+		return this.handlers[eventName];
 	}
 	_.setStyle = function() {
 		this.holder.style.overflow = "hidden";
